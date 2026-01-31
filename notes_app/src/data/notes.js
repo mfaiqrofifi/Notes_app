@@ -1,4 +1,3 @@
-// src/data/notes.js
 export const notes = [
   {
     id: "note-1",

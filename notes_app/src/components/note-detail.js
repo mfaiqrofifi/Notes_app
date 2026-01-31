@@ -1,4 +1,3 @@
-// src/components/note-detail.js
 class NoteDetail extends HTMLElement {
   set note(value) {
     this._note = value;

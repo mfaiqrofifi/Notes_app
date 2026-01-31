@@ -1,9 +1,8 @@
-// src/components/note-form.js
 class NoteForm extends HTMLElement {
   connectedCallback() {
     this.render();
     this._wire();
-    this._validate(); // set initial state
+    this._validate();
   }
 
   render() {
@@ -36,11 +35,9 @@ class NoteForm extends HTMLElement {
     this._errTitle = this.querySelector('[data-error="title"]');
     this._errBody = this.querySelector('[data-error="body"]');
 
-    // realtime validation
     this._title.addEventListener("input", () => this._validate());
     this._body.addEventListener("input", () => this._validate());
 
-    // submit
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
       const valid = this._validate();
@@ -53,10 +50,9 @@ class NoteForm extends HTMLElement {
         new CustomEvent("note-added", {
           detail: { title, body },
           bubbles: true,
-        })
+        }),
       );
 
-      // reset form
       this._form.reset();
       this._validate();
     });

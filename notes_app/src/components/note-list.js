@@ -1,4 +1,3 @@
-// src/components/note-list.js
 class NoteList extends HTMLElement {
   set notes(value) {
     this._notes = value;
@@ -23,7 +22,7 @@ class NoteList extends HTMLElement {
               <h3>${n.title}</h3>
               <p>${n.body}</p>
             </div>
-          `
+          `,
           )
           .join("")}
       </section>
@@ -34,8 +33,8 @@ class NoteList extends HTMLElement {
         this.dispatchEvent(
           new CustomEvent("note-selected", {
             detail: { id: el.dataset.id },
-            bubbles: true, // biar bisa ditangkap di main.js
-          })
+            bubbles: true,
+          }),
         );
       });
     });

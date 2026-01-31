@@ -1,4 +1,3 @@
-// src/components/app-bar.js
 class AppBar extends HTMLElement {
   static observedAttributes = ["title"];
 
@@ -15,9 +14,6 @@ class AppBar extends HTMLElement {
     this.innerHTML = `
       <header class="appbar">
         <div class="appbar__title">${title}</div>
-        <button class="appbar__btn" type="button" aria-label="Login">
-          Login
-        </button>
       </header>
     `;
   }

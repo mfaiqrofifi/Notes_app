@@ -1,4 +1,3 @@
-// src/main.js
 import { notes as initialNotes } from "./data/notes.js";
 
 import "./components/app-bar.js";
@@ -9,7 +8,7 @@ import "./components/note-detail.js";
 
 let notes = [...initialNotes];
 let selectedId = notes[0]?.id ?? null;
-let query = ""; // ✅ state search
+let query = "";
 
 const noteListEl = document.querySelector("note-list");
 const noteDetailEl = document.querySelector("note-detail");
@@ -17,7 +16,6 @@ const noteDetailEl = document.querySelector("note-detail");
 function render() {
   const q = query.trim().toLowerCase();
 
-  // ✅ filter list berdasarkan title + body
   const filtered = !q
     ? notes
     : notes.filter((n) => {
@@ -28,7 +26,6 @@ function render() {
   noteListEl.notes = filtered;
   noteListEl.selectedId = selectedId;
 
-  // ✅ detail: kosongkan kalau selected note sedang tidak muncul di hasil filter
   const selected = notes.find((n) => n.id === selectedId) ?? null;
   const selectedStillVisible = filtered.some((n) => n.id === selectedId);
 
@@ -53,13 +50,9 @@ document.addEventListener("note-added", (e) => {
   notes = [newNote, ...notes];
   selectedId = newNote.id;
 
-  // ✅ optional: reset search biar note baru kelihatan
-  // query = "";
-
   render();
 });
 
-// ✅ listener search
 document.addEventListener("search-changed", (e) => {
   query = e.detail.query ?? "";
   render();

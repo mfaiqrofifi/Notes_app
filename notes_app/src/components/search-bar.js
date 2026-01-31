@@ -1,4 +1,3 @@
-// src/components/search-bar.js
 class SearchBar extends HTMLElement {
   connectedCallback() {
     const placeholder = this.getAttribute("placeholder") ?? "Search...";
@@ -14,7 +13,7 @@ class SearchBar extends HTMLElement {
         new CustomEvent("search-changed", {
           detail: { query: input.value },
           bubbles: true,
-        })
+        }),
       );
     });
   }
