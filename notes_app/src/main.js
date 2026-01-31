@@ -51,6 +51,7 @@ document.addEventListener("note-added", (e) => {
     title,
     body,
     createdAt: new Date().toISOString(),
+    archived: false,
   };
 
   notes = [newNote, ...notes];
