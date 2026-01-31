@@ -6,7 +6,9 @@ import "./components/note-form.js";
 import "./components/note-list.js";
 import "./components/note-detail.js";
 
-let notes = [...initialNotes];
+let notes = [...initialNotes].sort(
+  (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+);
 let selectedId = notes[0]?.id ?? null;
 let query = "";
 
@@ -23,7 +25,11 @@ function render() {
         return hay.includes(q);
       });
 
-  noteListEl.notes = filtered;
+  const sorted = [...filtered].sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+  );
+
+  noteListEl.notes = sorted;
   noteListEl.selectedId = selectedId;
 
   const selected = notes.find((n) => n.id === selectedId) ?? null;
