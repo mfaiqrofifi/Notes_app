@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+
+    <!-- Optional: font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./src/style/style.css" />
+  </head>
+
+  <body>
+    <!-- App Bar -->
+    <app-bar title="Notes App"></app-bar>
+
+    <!-- Search -->
+    <section class="top">
+      <search-bar placeholder="Search notes..."></search-bar>
+    </section>
+
+    <!-- Main layout -->
+    <main class="layout" aria-label="Notes App">
+      <note-form></note-form>
+      <note-list></note-list>
+      <note-detail></note-detail>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
