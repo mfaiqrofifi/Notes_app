@@ -130,6 +130,13 @@ body {
   cursor: pointer;
 }
 
+.btn:disabled {
+  background: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .list {
   display: grid;
   gap: 16px;
@@ -202,4 +209,3 @@ body {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
-
