@@ -21,6 +21,15 @@ class NoteList extends HTMLElement {
             <div class="note-card ${n.id === selectedId ? "note-card--selected" : ""}" data-id="${n.id}">
               <h3>${n.title}</h3>
               <p>${n.body}</p>
+              <small class="note-date">
+                ${new Date(n.createdAt).toLocaleString("id-ID", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </small>
             </div>
           `,
           )

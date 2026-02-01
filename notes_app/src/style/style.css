@@ -159,6 +159,15 @@ body {
   color: var(--muted);
 }
 
+.note-date {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 10px;
+  font-family: "Press Start 2P", system-ui, sans-serif;
+  letter-spacing: 0.2px;
+}
+
 .note-card {
   transition:
     transform 0.15s ease,
@@ -174,6 +183,33 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
+}
+
+note-list {
+  display: block;
+  max-height: calc(100vh - 190px);
+  overflow: auto;
+  padding-right: 4px;
+}
+
+note-form,
+note-detail {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+}
+
+@media (max-width: 980px) {
+  note-list {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  note-form,
+  note-detail {
+    position: static;
+  }
 }
 
 .error {
