@@ -1,4 +1,13 @@
 class NoteDetail extends HTMLElement {
+  connectedCallback() {
+    this.render();
+  }
+
+  set mode(value) {
+    this._mode = value;
+    this.render();
+  }
+
   set note(value) {
     this._note = value;
     this.render();
@@ -6,6 +15,7 @@ class NoteDetail extends HTMLElement {
 
   render() {
     const note = this._note;
+    const mode = this._mode ?? 'active';
 
     if (!note) {
       this.innerHTML = `
@@ -18,7 +28,7 @@ class NoteDetail extends HTMLElement {
     }
 
     this.innerHTML = `
-      <section class="card">
+      <section class="card ${mode === 'archived' ? 'card--archived' : ''}">
         <h2 class="card__title">Details</h2>
 
         <p class="muted">Title</p>
@@ -33,4 +43,4 @@ class NoteDetail extends HTMLElement {
   }
 }
 
-customElements.define("note-detail", NoteDetail);
+customElements.define('note-detail', NoteDetail);

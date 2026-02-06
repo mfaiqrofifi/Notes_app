@@ -1,5 +1,5 @@
 class AppBar extends HTMLElement {
-  static observedAttributes = ["title"];
+  static observedAttributes = ['title'];
 
   connectedCallback() {
     this.render();
@@ -10,7 +10,7 @@ class AppBar extends HTMLElement {
   }
 
   render() {
-    const title = this.getAttribute("title") ?? "Notes App";
+    const title = this.getAttribute('title') ?? 'Notes App';
     this.innerHTML = `
       <header class="appbar">
         <div class="appbar__title">${title}</div>
@@ -19,4 +19,4 @@ class AppBar extends HTMLElement {
   }
 }
 
-customElements.define("app-bar", AppBar);
+customElements.define('app-bar', AppBar);

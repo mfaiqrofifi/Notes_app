@@ -28,17 +28,17 @@ class NoteForm extends HTMLElement {
   }
 
   _wire() {
-    this._form = this.querySelector("form");
+    this._form = this.querySelector('form');
     this._title = this.querySelector('input[name="title"]');
     this._body = this.querySelector('textarea[name="body"]');
     this._btn = this.querySelector('button[type="submit"]');
     this._errTitle = this.querySelector('[data-error="title"]');
     this._errBody = this.querySelector('[data-error="body"]');
 
-    this._title.addEventListener("input", () => this._validate());
-    this._body.addEventListener("input", () => this._validate());
+    this._title.addEventListener('input', () => this._validate());
+    this._body.addEventListener('input', () => this._validate());
 
-    this._form.addEventListener("submit", (e) => {
+    this._form.addEventListener('submit', (e) => {
       e.preventDefault();
       const valid = this._validate();
       if (!valid) return;
@@ -47,10 +47,10 @@ class NoteForm extends HTMLElement {
       const body = this._body.value.trim();
 
       this.dispatchEvent(
-        new CustomEvent("note-added", {
+        new CustomEvent('note-added', {
           detail: { title, body },
           bubbles: true,
-        }),
+        })
       );
 
       this._form.reset();
@@ -59,8 +59,8 @@ class NoteForm extends HTMLElement {
   }
 
   _validate() {
-    const title = this._title?.value.trim() ?? "";
-    const body = this._body?.value.trim() ?? "";
+    const title = this._title?.value.trim() ?? '';
+    const body = this._body?.value.trim() ?? '';
 
     const titleOk = title.length >= 3;
     const bodyOk = body.length >= 10;
@@ -75,4 +75,4 @@ class NoteForm extends HTMLElement {
   }
 }
 
-customElements.define("note-form", NoteForm);
+customElements.define('note-form', NoteForm);
